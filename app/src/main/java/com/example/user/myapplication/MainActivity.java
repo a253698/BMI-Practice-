@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("MainActivity" , "help");
                 // alt + enter .抽出
-                 new AlertDialog.Builder(MainActivity.this).setMessage("The body mass index (BMI) or Quetelet index is a value derived from the mass (weight) and height of an individual.")
+                 new AlertDialog.Builder(MainActivity.this).setMessage(R.string.bmi_info)
                          .setPositiveButton("ok" , null).show();
 
 
