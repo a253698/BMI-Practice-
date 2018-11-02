@@ -1,9 +1,12 @@
 package com.example.user.myapplication;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
     private void findView() {
         edweight = findViewById(R.id.ed_weight);
         edheight = findViewById(R.id.ed_height);
+        Button help = findViewById(R.id.help);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("MainActivity" , "help");
+                 new AlertDialog.Builder(MainActivity.this).setMessage("The body mass index (BMI) or Quetelet index is a value derived from the mass (weight) and height of an individual.")
+                         .setPositiveButton("ok" , null).show();
 
+            }
+        });
     }
 }
