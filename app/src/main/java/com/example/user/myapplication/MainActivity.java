@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         float weight = Float.parseFloat(edweight.getText().toString());
         float height = Float.parseFloat(edheight.getText().toString());
         float bmi = weight / (height * height);
-//        Intent intent = new Intent(this,ResultActivity.class);
-//        intent.putExtra("BMI" , bmi);
-//        startActivity(intent);
+        Intent intent = new Intent(this,ResultActivity.class);
+        intent.putExtra("BMI" , bmi);
+        startActivity(intent);
 
         Toast.makeText(this, "Yout BMI is " + bmi , Toast.LENGTH_LONG).show();
          new AlertDialog.Builder(this).setMessage("Your BMI is" + bmi)
