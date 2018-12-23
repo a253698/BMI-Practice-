@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private EditText edweight;
     private EditText edheight;
 
@@ -27,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void bmi(View view){
+        Log.d("MainActivity" , "BMI");
         float weight = Float.parseFloat(edweight.getText().toString());
         float height = Float.parseFloat(edheight.getText().toString());
         float bmi = weight / height * height ;
@@ -34,5 +34,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("BMI" , bmi);
         startActivity(intent);
+
+        Toast.makeText(this, "Your BMI is " + bmi , Toast.LENGTH_LONG).show();
+
+        new AlertDialog.Builder(this).setMessage("Your BMI is " + bmi)
+                .setTitle("BMI").setPositiveButton("OK ! " , null)
+                .setNegativeButton("CLEAR", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        edweight.setText("");
+                        edheight.setText("");
+                    }
+                }).show();
     }
 }
