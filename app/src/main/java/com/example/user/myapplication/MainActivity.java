@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText edweight;
     private EditText edheight;
+    private Button help;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
         edweight = findViewById(R.id.ed_weight);
         edheight = findViewById(R.id.ed_height);
+
+        help = findViewById(R.id.help);
+
     }
 
     public void bmi(View view){
@@ -34,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("BMI" , bmi);
         startActivity(intent);
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("MainActivity" , "help button");
+                new AlertDialog.Builder(MainActivity.this).setMessage("HELPPP")
+                        .setTitle("HELPP").setPositiveButton("OK" , null).show();
+            }
+        });
 
         Toast.makeText(this, "Your BMI is " + bmi , Toast.LENGTH_LONG).show();
 
