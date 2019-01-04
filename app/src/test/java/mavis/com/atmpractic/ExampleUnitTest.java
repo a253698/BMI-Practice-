@@ -1,4 +1,4 @@
-package com.example.user.myapplication;
+package mavis.com.atmpractic;
 
 import org.junit.Test;
 
